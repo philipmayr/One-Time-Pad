@@ -8,7 +8,7 @@ message = Readline.readline("> ", true).chars
 puts
 
 encoding_chart = Hash.new
-index = 0
+index = 1
 
 for char in message do
     if encoding_chart[char] == nil
@@ -112,3 +112,18 @@ for char in deciphered_message.to_s.chars do
         index = 0
     end
 end
+
+decoded_message = ""
+
+index = 0
+encoding_chart.invert
+
+while index < (deciphered_message.to_s.length - 1) do
+    value = deciphered_message.to_s.chars[index] + deciphered_message.to_s.chars[index + 1]
+    decoded_message += encoding_chart.key(value)
+    index += 2
+end
+
+puts
+puts
+puts decoded_message
