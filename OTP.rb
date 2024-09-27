@@ -120,7 +120,9 @@ encoding_chart.invert
 
 while index < (deciphered_message.to_s.length - 1) do
     value = deciphered_message.to_s.chars[index] + deciphered_message.to_s.chars[index + 1]
-    decoded_message += encoding_chart.key(value)
+    if encoding_chart.key(value) != nil
+        decoded_message += encoding_chart.key(value)
+    end
     index += 2
 end
 
