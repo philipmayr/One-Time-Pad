@@ -128,4 +128,5 @@ end
 
 puts
 puts
+puts "Decoded message:"
 puts decoded_message
