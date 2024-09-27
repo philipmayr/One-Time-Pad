@@ -114,6 +114,11 @@ end
 
 deciphered_message = enciphered_message.to_i ^ key.to_i
 
+for i in deciphered_message.to_s.length..(enciphered_message.to_s.length - 1) do
+    deciphered_message = "0" + deciphered_message.to_s
+end
+
+puts
 puts
 puts "Deciphered message:"
 index = 0
