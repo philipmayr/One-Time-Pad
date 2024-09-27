@@ -17,28 +17,28 @@ for char in message do
     end
 end
 
-padding = ""
-if index > 99
-    padding = "00"
-elsif index > 9
-    padding = "0"
-end
+# padding = ""
+# if index > 99
+#     padding = "00"
+# elsif index > 9
+#     padding = "0"
+# end
 
-index = 0
+# index = 0
 
-for char in message do
-    if encoding_chart[char] == nil
-        if index < 10
-            encoding_chart[char] = "00" + index.to_s
-        elsif index < 100
-            encoding_chart[char] = "0" + index.to_s
-        else
-            encoding_chart[char] = index.to_s
-        end
-        encoding_chart[char] = "0"
-        index += 1
-    end
-end
+# for char in message do
+#     if encoding_chart[char] == nil
+#         if index < 10
+#             encoding_chart[char] = "00" + index.to_s
+#         elsif index < 100
+#             encoding_chart[char] = "0" + index.to_s
+#         else
+#             encoding_chart[char] = index.to_s
+#         end
+#         encoding_chart[char] = "0"
+#         index += 1
+#     end
+# end
 
 encoded_message = ""
 
@@ -97,17 +97,28 @@ loop do
     end
 end
 
-enciphered_message = ""
-
-for index in (0..encoded_message.length - 1) do
-    enciphered_message += (encoded_message.chars[index].to_i ^ key.chars[index].to_i).to_s
-end
+enciphered_message = encoded_message.to_i ^ key.to_i
 
 puts
 puts "Enciphered message:"
 index = 0
 
-for char in enciphered_message.chars do
+for char in enciphered_message.to_s.chars do
+    print char
+    index += 1
+    if index == 5
+        print ' '
+        index = 0
+    end
+end
+
+deciphered_message = enciphered_message.to_i ^ key.to_i
+
+puts
+puts "Deciphered message:"
+index = 0
+
+for char in deciphered_message.to_s.chars do
     print char
     index += 1
     if index == 5
