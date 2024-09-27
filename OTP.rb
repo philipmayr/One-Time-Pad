@@ -12,33 +12,14 @@ index = 0
 
 for char in message do
     if encoding_chart[char] == nil
-        encoding_chart[char] = "0"
+        if index < 10
+            encoding_chart[char] = "0" + index.to_s
+        else
+            encoding_chart[char] = index.to_s
+        end
         index += 1
     end
 end
-
-# padding = ""
-# if index > 99
-#     padding = "00"
-# elsif index > 9
-#     padding = "0"
-# end
-
-# index = 0
-
-# for char in message do
-#     if encoding_chart[char] == nil
-#         if index < 10
-#             encoding_chart[char] = "00" + index.to_s
-#         elsif index < 100
-#             encoding_chart[char] = "0" + index.to_s
-#         else
-#             encoding_chart[char] = index.to_s
-#         end
-#         encoding_chart[char] = "0"
-#         index += 1
-#     end
-# end
 
 encoded_message = ""
 
